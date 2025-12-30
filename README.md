@@ -11,7 +11,6 @@ This first iteration consolidates my understanding of full-stack development, in
 * UI styling
 
 ## Overview
-
 **AI Notes** is a simple note-taking application built with the following stack:
 * **Database:** SQLite3
 * **Backend:** Node.js with Express
@@ -20,6 +19,9 @@ This first iteration consolidates my understanding of full-stack development, in
 
 
 ## First Iteration
+### Demo
+![1st Iteration Demo](demo/1stIterationDemo-2025-12-30.gif)
+
 ### Backend (`server`)
 * **CRUD operations implemented:**
   * Create notes
