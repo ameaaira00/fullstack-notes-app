@@ -48,6 +48,7 @@ router.post("/", async (req, res) => {
  * Fetch all notes
  */
 router.get("/", async (req, res) => {;
+     console.log("Fetch all notes route triggered");
     const sql = `
         SELECT id, title, content, created_at, updated_at
         FROM notes
@@ -71,40 +72,52 @@ router.get("/", async (req, res) => {;
     }
 });
 
+
 /**
- * FEtch a single note by ID
+ * Search notes by title or content.
+ * 
+ * TO DO: Support semantic search using a more advanced method.
  */
-router.get("/:id", async (req, res) => {
-    const noteId = req.params.id;
+router.get("/search", async (req, res) => {
+    console.log("Search route triggered!", req.query);
+    const q = req.query.q;
+    console.log("Search query:", q);
+    console.log("Type of query:", typeof q);
+
+    if (!q) {
+        return res.status(400).json({
+            success: false,
+            message: "Search query is required"
+        });
+    }
+
+    const query = q.trim();
+
+
     const sql = `
         SELECT id, title, content, created_at, updated_at
         FROM notes
-        WHERE id = ? AND deleted_at IS NULL
+        WHERE (title LIKE ? OR content LIKE ?) AND deleted_at IS NULL
+        ORDER BY created_at DESC
         `;
-    
-    const params = [noteId];
+    const likeQuery = `%${query}%`; // wildcard search for partial matches
+    const params = [likeQuery, likeQuery];
+
     try {
-        // Execute the select query. Promise is returned by db.get
-        const note = await db.get(sql, params);
-        if (note) {
-            res.status(200).json({
-                success: true,
-                note: note
-            });
-        } else {
-            res.status(404).json({
-                success: false,
-                message: "Note not found"
-            });
-        }
+        const notes = await db.all(sql, params);
+
+        console.log(`Search for "${query}" returned ${notes.length} notes.`);
+        res.status(200).json({
+            success: true,
+            notes: notes
+        });
     } catch (error) {
-        // Handle any errors during the database operation
         res.status(500).json({
             success: false,
-            message: "Error fetching note",
+            message: "Error searching notes",
             error: error.message
         });
-    }
+    }  
 });
 
 /**

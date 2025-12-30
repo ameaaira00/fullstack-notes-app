@@ -18,9 +18,38 @@ This first iteration consolidates my understanding of full-stack development, in
 **Goal:** Understand the full flow of data from frontend to backend to database and reflect on React, full-stack, and AI concepts.
 
 
+## Second Iteration
+### Demo
+#### Search
+![Search](demo/2ndIteration/Search-2025-12-30.gif)
+
+While implementing search, I realized that in the backend, route order matters. Having `notes/:id` before `notes/search` caused requests for search to be incorrectly routed. I debugged this using console logs and AI assistance, and learned that the order of route definitions is important in Express.
+
+I still don't have use for `notes/:id` so removed taht for now.
+
+I plan to implenent semantic search next.
+
+#### Speech to Text
+![Speech to Text](demo/2ndIteration/SpeechToText-2025-12-30.gif)
+It’s been fun reading about the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API). I’m glad we already have this available, it’s easy to integrate, so I don’t have to build speech recognition from scratch.
+
+It works by:
+- Receiving audio input from the user's microphone
+- Processing the audio by a speech recognition service
+- Returning the recognized text
+
+This iteration adds speech-to-text functionality to the notes app, enabling users to dictate notes directly in the frontend.
+
+### Backend (`server`)
+- Add search by title or content
+
+### Frontend (`client`)
+- Support search and transcription ui
+- Use Create Icon instead of a Text button
+
 ## First Iteration
 ### Demo
-![1st Iteration Demo](demo/1stIterationDemo-2025-12-30.gif)
+![1st Iteration Demo](demo/1stIteration/1stIterationDemo-2025-12-30.gif)
 
 ### Backend (`server`)
 * **CRUD operations implemented:**

@@ -1,12 +1,11 @@
 /*
- * Here we are using CSS modules and Tailwind CSS for styling
+ * Here we are using CSS modules for styling
  * We name it NotesListPage.module.css so build system (Vite) can identify it as a CSS module
  */
 
 .container {
-  padding: 40px 20px;
   max-width: 800px;
-  margin: 40px auto;
+  margin: 10px auto;
 }
 
 .pageTitle {
@@ -15,18 +14,39 @@
   color: var(--title-color);
 }
 
-.createLink {
-  display: inline-block;
-  margin-bottom: 25px;
-  padding: 12px 20px;
-  background-color: var(--primary-color);
-  color: #333;
-  font-weight: 500;
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* title left, button right */
+  margin-bottom: 5px;
+}
+
+.addNoteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  padding: 6px 10px;
   border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #fff;
   text-decoration: none;
   transition: background-color 0.2s;
 }
 
-.createLink:hover {
+.addNoteButton:hover {
   background-color: var(--primary-color-hover);
+}
+
+.searchRow {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
