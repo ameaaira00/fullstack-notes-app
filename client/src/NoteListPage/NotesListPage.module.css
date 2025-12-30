@@ -1,0 +1,32 @@
+/*
+ * Here we are using CSS modules and Tailwind CSS for styling
+ * We name it NotesListPage.module.css so build system (Vite) can identify it as a CSS module
+ */
+
+.container {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: var(--title-color);
+}
+
+.createLink {
+  display: inline-block;
+  margin-bottom: 25px;
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: #333;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.createLink:hover {
+  background-color: var(--primary-color-hover);
+}

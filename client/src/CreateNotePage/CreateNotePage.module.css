@@ -1,0 +1,80 @@
+.pageContainer {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-color);
+  min-height: calc(100vh - 72px);
+}
+
+.formCard {
+  background-color: #fff0f5;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  width: 100%;
+  max-width: 500px;
+}
+
+.formTitle {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--title-color);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+}
+
+.input {
+  margin-top: 5px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.textarea {
+  margin-top: 5px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 250px;
+  transition: border-color 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(255,192,203,0.4);
+}
+
+.submitButton {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-color-hover);
+}

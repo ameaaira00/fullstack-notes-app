@@ -1,0 +1,27 @@
+.header {
+  background-color: var(--primary-color); 
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--primary-color-hover); 
+}
+
+.main {
+  padding: 2rem;
+  min-height: calc(100vh - 72px); /* adjusts for header height */
+  background-color: var(--background-color); 
+}
