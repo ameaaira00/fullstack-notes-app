@@ -1,0 +1,8 @@
+# Python microservice
+python_service/venv/
+
+
+# Node.js backend (server)
+server/node_modules/
+server/.env
+server/dist/

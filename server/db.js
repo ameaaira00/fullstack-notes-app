@@ -4,11 +4,11 @@ import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
 export const db = await open({
-    filename: "./server/database.sqlite",
+    filename: "./database.sqlite",
     driver: sqlite3.Database
 });
 
-const shema = `
+const schema = `
     CREATE TABLE IF NOT EXISTS notes (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title VARCHAR(255) NOT NULL,
@@ -17,7 +17,13 @@ const shema = `
         updated_at INTEGER NOT NULL DEFAULT (strftime('%s','now')),
         deleted_at INTEGER NULL
     );
+
+    CREATE TABLE IF NOT EXISTS note_embeddings (
+        note_id INTEGER PRIMARY KEY,
+        embedding BLOB NOT NULL,
+        FOREIGN KEY(note_id) REFERENCES notes(id)
+    );
 `;
 
 // Initialize the database schema
-await db.exec(shema);
+await db.exec(schema);
